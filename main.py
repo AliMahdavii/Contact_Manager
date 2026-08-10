@@ -1,3 +1,6 @@
+contacts = []
+
+
 def add_contact():
 
     print("\n----------ADD CONTACT----------\n")
@@ -6,10 +9,18 @@ def add_contact():
     phone = input("Phone: ")
     email = input("Email: ")
 
+    contact = {
+        "name: ": name,
+        "phone: ": phone,
+        "email: ": email
+    }
+
+    contacts.append(contact)
+
     print("\nContact added successfully!\n")
 
 
-def show_contact():
+def show_contacts():
     pass
 
 
