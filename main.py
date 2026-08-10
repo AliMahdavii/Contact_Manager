@@ -55,7 +55,35 @@ def search_contact():
 
 
 def edit_contact():
-    pass
+    print("\n----------EDIT CONTACT----------\n")
+
+    search = input("Enter contact name: ")
+
+    found = False
+
+    for contact in contacts:
+        if search.lower() == contact["name"].lower():
+            print("\n1. Name")
+            print("2. Phone")
+            print("3. Email")
+
+            option = input("\nWhat do you want to edit? ")
+
+            if option == "1":
+                contact["name"] = input("\nEnter your new name: ")
+
+            elif option == "2":
+                contact["phone"] = input("\nEnter your new phone: ")
+
+            elif option == "3":
+                contact["email"] = input("\nEnter your new email: ")
+
+            print("\nContact updated successfully!")
+
+            found = True
+
+    if not found:
+        print("\nContact not found!\n")
 
 
 def delete_contact():
