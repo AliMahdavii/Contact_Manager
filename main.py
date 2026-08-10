@@ -22,7 +22,7 @@ def add_contact():
 
 
 def show_contacts():
-    print("\n----------CONTACT----------\n")
+    print("\n----------CONTACTS----------\n")
 
     if len(contacts) == 0:
         print("No contacts found!\n")
@@ -36,7 +36,22 @@ def show_contacts():
 
 
 def search_contact():
-    pass
+    print("\n----------SEARCH CONTACT----------\n")
+
+    search = input("Search: ")
+
+    found = False
+
+    for contact in contacts:
+
+        if search.lower() in contact["name"].lower():
+            print("\nName: ", contact["name"])
+            print("Phone: ", contact["phone"])
+            print("Email: ", contact["email"])
+            print("--------------------")
+            found = True
+    if not found:
+        print("\nContact not found!\n")
 
 
 def edit_contact():
