@@ -1,6 +1,4 @@
-y = ""
-for x in range(30):
-    y += "="
+y = "=" * 30
 
 print(y, "\n", "      CONTACT MANAGER", "\n", y)
 
@@ -14,3 +12,21 @@ print("\n",
       )
 
 option = input("Choose an option: ")
+
+if option == "1":
+    addContact()
+
+elif option == "2":
+    showContacts()
+
+elif option == "3":
+    searchContact()
+
+elif option == "4":
+    editContact()
+
+elif option == "5":
+    deleteContact()
+
+elif option == "6":
+    exitFromProgram()
