@@ -1,3 +1,34 @@
+def add_contact():
+
+    print("\n----------ADD CONTACT----------\n")
+
+    name = input("Name: ")
+    phone = input("Phone: ")
+    email = input("Email: ")
+
+    print("\nContact added successfully!\n")
+
+
+def show_contact():
+    pass
+
+
+def search_contact():
+    pass
+
+
+def edit_contact():
+    pass
+
+
+def delete_contact():
+    pass
+
+
+def exit_from_program():
+    pass
+
+
 y = "=" * 30
 
 print(y, "\n", "      CONTACT MANAGER", "\n", y)
@@ -14,19 +45,19 @@ print("\n",
 option = input("Choose an option: ")
 
 if option == "1":
-    addContact()
+    add_contact()
 
 elif option == "2":
-    showContacts()
+    show_contacts()
 
 elif option == "3":
-    searchContact()
+    search_contact()
 
 elif option == "4":
-    editContact()
+    edit_contact()
 
 elif option == "5":
-    deleteContact()
+    delete_contact()
 
 elif option == "6":
-    exitFromProgram()
+    exit_from_program()
