@@ -87,7 +87,31 @@ def edit_contact():
 
 
 def delete_contact():
-    pass
+    print("\n----------DELETE CONTACT----------\n")
+
+    search = input("Enter contact name: ")
+
+    found = False
+
+    for contact in contacts:
+        if search.lower() == contact["name"].lower():
+            print("\nName: ", contact["name"])
+            print("Phone: ", contact["phone"])
+            print("Email: ", contact["email"])
+
+            confirm = input(
+                "\nAre you sure you want to delete this contact? (y/n): ")
+
+            if confirm.lower() == "y":
+                contacts.remove(contact)
+
+                print("\nContact deleted successfully!\n")
+
+            found = True
+            break
+
+    if not found:
+        print("\nContact not found!")
 
 
 def exit_from_program():
