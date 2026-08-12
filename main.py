@@ -1,5 +1,18 @@
-contacts = []
+import json
+
+try:
+    with open("contacts.json", "r") as file:
+        contacts = json.load(file)
+
+except FileNotFoundError:
+    contacts = []
+
 program_running = True
+
+
+def save_contacts():
+    with open("contacts.json", "w") as file:
+        json.dump(contacts, file, indent=4)
 
 
 def add_contact():
@@ -17,6 +30,7 @@ def add_contact():
     }
 
     contacts.append(contact)
+    save_contacts()
 
     print("\nContact added successfully!\n")
 
@@ -78,6 +92,8 @@ def edit_contact():
             elif option == "3":
                 contact["email"] = input("\nEnter your new email: ")
 
+                save_contacts()
+
             print("\nContact updated successfully!")
 
             found = True
@@ -104,6 +120,8 @@ def delete_contact():
 
             if confirm.lower() == "y":
                 contacts.remove(contact)
+
+                save_contacts()
 
                 print("\nContact deleted successfully!\n")
 
