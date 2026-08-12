@@ -295,3 +295,6 @@ while (program_running):
 
     elif option == "6":
         program_running = exit_from_program()
+
+    else:
+        print("\nInvalide option!\nPlease choose a number between 1 and 6.\n")
