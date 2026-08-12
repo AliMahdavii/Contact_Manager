@@ -34,6 +34,28 @@ def validate_name(name):
     return True
 
 
+def validate_phone(phone):
+    phone = phone.strim()
+
+    if len(phone) == 0:
+        print("Phone cannot be empty!")
+        return False
+
+    if not phone.isdigit():
+        print("Phone must contain only numbers!")
+        return False
+
+    if len(phone) != 11:
+        print("Phone number must be 11 digits!")
+        return False
+
+    if not phone.startswith("09"):
+        print("Phone number must start with 09")
+        return False
+
+    return True
+
+
 def add_contact():
 
     print("\n----------ADD CONTACT----------\n")
@@ -44,7 +66,12 @@ def add_contact():
         if validate_name(name):
             break
 
-    phone = input("Phone: ")
+    while True:
+        phone = input("Phone: ")
+
+        if validate_phone(phone):
+            break
+
     email = input("Email: ")
 
     contact = {
