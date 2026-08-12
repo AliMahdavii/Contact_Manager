@@ -35,7 +35,7 @@ def validate_name(name):
 
 
 def validate_phone(phone):
-    phone = phone.strim()
+    phone = phone.strip()
 
     if len(phone) == 0:
         print("Phone cannot be empty!")
