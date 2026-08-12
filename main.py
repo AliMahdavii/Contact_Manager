@@ -15,11 +15,35 @@ def save_contacts():
         json.dump(contacts, file, indent=4)
 
 
+def validate_name(name):
+
+    name = name.strip()
+
+    if len(name) == 0:
+        print("Name cannot be empty!")
+        return False
+
+    if len(name) < 2:
+        print("Name must be at least 2 characters!")
+        return False
+
+    if len(name) > 30:
+        print("Name cannot be longer than 30 characters!")
+        return False
+
+    return True
+
+
 def add_contact():
 
     print("\n----------ADD CONTACT----------\n")
 
-    name = input("Name: ")
+    while True:
+        name = input("Name: ")
+
+        if validate_name(name):
+            break
+
     phone = input("Phone: ")
     email = input("Email: ")
 
