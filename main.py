@@ -56,6 +56,34 @@ def validate_phone(phone):
     return True
 
 
+def validate_email(email):
+    email = email.strip()
+
+    if len(email) == 0:
+        print("Email cannot be empty!")
+        return False
+
+    if email.count("@") != 1:
+        print("Invalid email!")
+        return False
+
+    username, domain = email.split("@")
+
+    if len(username) == 0:
+        print("Invalid email!")
+        return False
+
+    if "." not in domain:
+        print("Invalid email!")
+        return False
+
+    if domain.startswith(".") or domain.endswith("."):
+        print("Invalid email!")
+        return False
+
+    return True
+
+
 def add_contact():
 
     print("\n----------ADD CONTACT----------\n")
@@ -72,7 +100,11 @@ def add_contact():
         if validate_phone(phone):
             break
 
-    email = input("Email: ")
+    while True:
+        email = input("Email: ")
+
+        if validate_email(email):
+            break
 
     contact = {
         "name": name,
