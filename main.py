@@ -192,7 +192,13 @@ def edit_contact():
             print("2. Phone")
             print("3. Email")
 
-            option = input("\nWhat do you want to edit? ")
+            while True:
+                option = input("\nWhat do you want to edit? ")
+
+                if option in ["1", "2", "3"]:
+                    break
+
+                print("\nInvalid option!\nPlease choose 1, 2 or 3.\n")
 
             if option == "1":
                 while True:
@@ -206,7 +212,7 @@ def edit_contact():
                 while True:
                     new_phone = input("\nEnter your new phone: ")
 
-                    if validate_phone:
+                    if validate_phone(new_phone):
                         contact["phone"] = new_phone
                         break
 
@@ -214,15 +220,16 @@ def edit_contact():
                 while True:
                     new_email = input("\nEnter your new email: ")
 
-                    if validate_email:
+                    if validate_email(new_email):
                         contact["email"] = new_email
                         break
 
-                save_contacts()
+            save_contacts()
 
             print("\nContact updated successfully!")
 
             found = True
+            break
 
     if not found:
         print("\nContact not found!\n")
