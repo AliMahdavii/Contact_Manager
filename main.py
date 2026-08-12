@@ -167,13 +167,25 @@ def edit_contact():
             option = input("\nWhat do you want to edit? ")
 
             if option == "1":
-                contact["name"] = input("\nEnter your new name: ")
+                while True:
+                    contact["name"] = input("\nEnter your new name: ")
+
+                    if validate_name:
+                        break
 
             elif option == "2":
-                contact["phone"] = input("\nEnter your new phone: ")
+                while True:
+                    contact["phone"] = input("\nEnter your new phone: ")
+
+                    if validate_phone:
+                        break
 
             elif option == "3":
-                contact["email"] = input("\nEnter your new email: ")
+                while True:
+                    contact["email"] = input("\nEnter your new email: ")
+
+                    if validate_email:
+                        break
 
                 save_contacts()
 
