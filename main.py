@@ -248,15 +248,23 @@ def delete_contact():
             print("Phone: ", contact["phone"])
             print("Email: ", contact["email"])
 
-            confirm = input(
-                "\nAre you sure you want to delete this contact? (y/n): ")
+            while True:
+                confirm = input(
+                    "\nAre you sure you want to delete this contact? (y/n): ").lower()
 
-            if confirm.lower() == "y":
+                if confirm in ["y", "n"]:
+                    break
+
+                print("\nInvalid option!\nPlease enter y or n.\n")
+
+            if confirm == "y":
                 contacts.remove(contact)
-
                 save_contacts()
 
                 print("\nContact deleted successfully!\n")
+
+            else:
+                print("\nDeletion cancelled.\n")
 
             found = True
             break
