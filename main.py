@@ -84,6 +84,22 @@ def validate_email(email):
     return True
 
 
+def phone_exists(phone):
+    for contact in contacts:
+        if contact["phone"] == phone:
+            return True
+
+    return False
+
+
+def name_exists(name):
+    for contact in contacts:
+        if contact["name"].lower() == name.lower():
+            return True
+
+    return False
+
+
 def add_contact():
 
     print("\n----------ADD CONTACT----------\n")
@@ -91,14 +107,26 @@ def add_contact():
     while True:
         name = input("Name: ")
 
-        if validate_name(name):
-            break
+        if not validate_name(name):
+            continue
+
+        if name_exists(name):
+            print("This name already exists!")
+            continue
+
+        break
 
     while True:
         phone = input("Phone: ")
 
-        if validate_phone(phone):
-            break
+        if not validate_phone(phone):
+            continue
+
+        if phone_exists(phone):
+            print("This number already exists!")
+            continue
+
+        break
 
     while True:
         email = input("Email: ")
